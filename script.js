@@ -8,7 +8,7 @@ btn.forEach((button) => {
         if (button.value == "del") {
             screen.innerHTML = screen.textContent.slice(0, -1);
         } else if (button.value == "=") {
-            value = screen.textContent.split(/(\d)/).slice(1, -1).join("");
+            value = screen.textContent.match(/([-+]?\d+(?:\.\d+)?|[+\-*/])/g).join("");
             screen.innerHTML = eval(value);
         } else if (button.value == "reset") {
             screen.innerHTML = "";
