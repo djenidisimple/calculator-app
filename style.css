@@ -17,16 +17,15 @@ html {
     height: 100%;
 }
 body {
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     font-family: League Spartan;
     background-color: var(--theme-1);
-    padding: 5px;
-    padding-top: 0;
+    padding: 25px;
+    gap: 33px;
 }
 header {
     width: 327px;
@@ -44,10 +43,29 @@ main {
     gap: 27px!important;
 }
 .input {
+    position: relative;
+    cursor: pointer;
     width: 71px;
     height: 26px;
+    box-sizing: border-box;
     background-color: #252D44;
     border-radius: 14px;
+}
+.input::after {
+    content: "";
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 18px;
+    height: 18px;
+    background-color: #D63C34;
+    border: 2px solid #3D2733;
+    border-radius: 100%;
+}
+.input:hover::after {
+    background-color: rgb(250 108 88);
 }
 .title {
     display: block;
@@ -60,12 +78,16 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    padding-top: 4px;
+    box-sizing: border-box;
 }
 .number {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: end;
+    padding-right: 15px;
     color: white;
-    gap: 17px;
+    gap: 12px;
 }
 .w-full {
     width: 100%;
@@ -117,11 +139,17 @@ button {
     background-color: #EAE2DA;
     box-shadow: 0 4px #B4A69B;
 }
+button:hover {
+    background-color: white;
+}
 .btn-del {
     font-size: 20px;
     background: #63729B;
     color: white;
     box-shadow: 0 4px #435176;
+}
+.btn-del:hover, .btn-reset:hover {
+    background-color: rgb(163 180 226);
 }
 .btn-reset {
     width: 100%;
@@ -138,4 +166,7 @@ button {
     background-color: #D13F30;
     box-shadow: 0 4px #96271C;
     color: white;
+}
+.btn-egal:hover {
+    background-color: rgb(249 108 91);
 }
