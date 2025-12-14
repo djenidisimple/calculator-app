@@ -104,18 +104,53 @@ h2 {
     align-items: center;
 }
 .screen {
+    background-color: #181F32;
+    width: 327px;
+    height: auto;
+    border-radius: 10px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    padding: 20px;
     padding-right: 24px;
     padding-left: 24px;
     box-sizing: border-box;
+}
+.limite {
+    height: 40px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    box-sizing: border-box;
     color: white;
     font-size: 40px;
-    background-color: #181F32;
-    width: 327px;
-    height: 88px;
-    border-radius: 10px;
+}
+.text-screen {
+    z-index: 1;
+}
+.animation-text-toGoUp {
+    animation: 1s toGoUp;
+}
+.animation-text-toGoDown {
+    animation: 1s toGoDown;
+}
+@keyframes toGoUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-40px);
+    }
+}
+
+@keyframes toGoDown {
+    0% {
+        transform: translateY(-40px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 .keyboard {
     padding: 23px;
