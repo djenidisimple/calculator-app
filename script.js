@@ -53,3 +53,7 @@ const formatedNumber = (value) => {
 const deleteFormatedNumber = (value) => {
     return value.split(",").join("");
 }
+
+const changeTheme = () => {
+    // code here
+}
