@@ -2,6 +2,13 @@ let btn = document.querySelectorAll("button");
 let screen = document.querySelector(".text-screen");
 let cal = 0,pre = 0, value = [];
 let result = true;
+let round = document.querySelectorAll(".round");
+let body = document.querySelector("body");
+
+const savedTheme = localStorage.getItem('calculator-theme') || 1;
+round.forEach((r) => r.style.opacity = "0");
+round[parseInt(savedTheme) - 1].style.opacity = "1";
+body.setAttribute("data-theme", savedTheme);
 
 btn.forEach((button) => {
     button.addEventListener("click", function() {
@@ -54,6 +61,11 @@ const deleteFormatedNumber = (value) => {
     return value.split(",").join("");
 }
 
-const changeTheme = () => {
-    // code here
-}
+round.forEach((r, index) => {
+    r.addEventListener("click", function() {
+        round.forEach((r) => { r.style.opacity = "0"; });
+        r.style.opacity = "1";
+        body.setAttribute('data-theme', index + 1);
+        localStorage.setItem('calculator-theme', index + 1);
+    });
+});
