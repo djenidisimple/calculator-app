@@ -4,11 +4,28 @@
     font-family: League Spartan;
     src: url(./src/LeagueSpartan-VariableFont_wght.ttf);
 }
-:root {
-    --theme-1: #3A4664;
-    --theme-2: #3A4664;
-    --theme-3: #3A4664;
+[data-theme="1"] {
+    --background: #3A4664;
+    --screen: #181F32;
     --keyboard: #252D44;
+    --text-white: white;
+    --navy-700: #63729B;
+    --navy-600: #435176;
+    --round: #D63C34;
+    --shadow-round: #3D2733;
+}
+[data-theme="2"] {
+    --background: rgb(230, 230, 230);
+    --screen: rgb(238, 238, 238);
+    --keyboard: rgb(211, 205, 205);
+    --text-white: rgb(47, 47, 39);
+    --navy-700: rgb(58, 129, 135);
+    --navy-600: rgb(26, 95, 102);
+    --round: rgb(202, 83, 1);
+    --shadow-round: rgb(202, 83, 1);
+}
+[data-theme="3"] {
+    --background: rgb(23 ,6 ,42);
 }
 html {
     margin: 0;
@@ -23,7 +40,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: League Spartan;
-    background-color: var(--theme-1);
+    background-color: var(--background);
     box-sizing: border-box;
 }
 header {
@@ -46,28 +63,44 @@ main {
     width: 71px;
     height: 26px;
     box-sizing: border-box;
-    background-color: #252D44;
+    background-color: var(--keyboard);
     border-radius: 14px;
 }
-.input::after {
-    content: "";
+.t-1 {
+    opacity: 1;
+    left: 20%;
+    transform: translateY(-50%) translateX(-50%);
+    background-color: #D63C34;
+    border: 2px solid #3D2733;
+}
+.t-2 {
+    opacity: 0;
+    left: 40%;
+    transform: translateY(-50%) translateX(-20%);
+    background-color: var(--round);
+    border: 2px solid var(--shadow-round);
+}
+.t-3 {
+    opacity: 0;
+    left: 60%;
+    transform: translateY(-50%) translateX(12%);
+    background-color: #D63C34;
+    border: 2px solid #3D2733;
+}
+.round {
     position: absolute;
     cursor: pointer;
     top: 50%;
-    left: 20%;
-    transform: translateY(-50%) translateX(-50%);
     width: 18px;
     height: 18px;
-    background-color: #D63C34;
-    border: 2px solid #3D2733;
     border-radius: 100%;
 }
-.input:hover::after {
+.round:hover {
     background-color: rgb(250 108 88);
 }
 .title {
     display: block;
-    color: white;
+    color: var(--text-white);
     font-size: 32px;
     font-weight: bold;
 }
@@ -84,7 +117,7 @@ main {
     display: flex;
     justify-content: end;
     padding-right: 15px;
-    color: white;
+    color: var(--text-white);
     gap: 12px;
 }
 .w-full {
@@ -92,7 +125,7 @@ main {
 }
 h2 {
     text-transform: uppercase;
-    color: white;
+    color: var(--text-white);
     font-size: 12px;
     font-weight: 900;
 }
@@ -102,7 +135,7 @@ h2 {
     align-items: center;
 }
 .screen {
-    background-color: #181F32;
+    background-color: var(--screen);
     width: 100%;
     max-height: 124px;
     max-width: 540px;
@@ -122,9 +155,10 @@ h2 {
     justify-content: flex-end;
     flex-wrap: wrap;
     box-sizing: border-box;
-    color: white;
+    color: var(--text-white);
 }
 .text-screen {
+    font-weight: bold;
     z-index: 1;
     font-size: clamp(40px, 6vw, 54px);
 }
@@ -178,13 +212,13 @@ button {
     color: #474A53;
 }
 button:hover {
-    background-color: white;
+    background-color: var(--text-white);
 }
 .btn-del {
     font-size: 20px;
-    background: #63729B;
+    background: var(--navy-700);
     color: #F9FFFF;
-    box-shadow: 0 4px #435176;
+    box-shadow: 0 4px var(--navy-600);
 }
 .btn-del:hover, .btn-reset:hover {
     background-color: rgb(163 180 226);
@@ -193,8 +227,8 @@ button:hover {
     width: 100%;
     grid-column: span 2;
     font-size: 20px;
-    background-color: #63729B;
-    box-shadow: 0 4px #435176;
+    background-color: var(--navy-700);
+    box-shadow: 0 4px var(--navy-600);
     color: #F9FFFF;
 }
 .btn-egal {
