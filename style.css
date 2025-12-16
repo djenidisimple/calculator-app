@@ -235,15 +235,15 @@ h2 {
     background: var(--keyboard);
     border-radius: 10px;
     display: grid;
-    grid-template-columns: repeat(4, 2fr);
-    grid-template-rows: repeat(5, clamp(50px, 8vh, 66px));
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(5, clamp(50px, 8vh, 62px));
     place-items: center;
     column-gap: 2.7vw;
     row-gap: 2.4vh;
 }
 button {
     display: block;
-    width: 100%;
+    width: 60px;
     height: 100%;
     border-radius: clamp(4px, 1.5vw, 12px);
     border: none;
@@ -260,7 +260,6 @@ button:hover {
 }
 .btn-del {
     font-size: clamp(20px, 1vw, 25px);
-    letter-spacing: -5%;
     background: var(--btn-reset-color);
     color: var(--btn-reset-text);
     box-shadow: 0 4px var(--btn-reset-shadow);
@@ -275,13 +274,11 @@ button:hover {
     background-color: var(--btn-reset-color);
     box-shadow: 0 4px var(--btn-reset-shadow);
     color: var(--btn-reset-text);
-    letter-spacing: -5%;
 }
 .btn-egal {
     width: 100%;
     grid-column: 3 / 5;
     font-size: clamp(20px, 1vw, 25px);
-    letter-spacing: -5%;
     background-color: var(--btn-equal-color);
     box-shadow: 0 4px var(--btn-equal-shadow);
     color: var(--btn-equal-text);
@@ -299,6 +296,14 @@ button:hover {
 }
 
 @media screen and (min-width: 768px) {
+    button {
+        width: 100px;
+        font-size: 40px;
+    }
+    .btn-egal, .btn-del, .btn-reset {
+        font-size: 25px;
+        letter-spacing: -4%;
+    }
     .calculator {
         width: 100%;
         max-width: 540px;
