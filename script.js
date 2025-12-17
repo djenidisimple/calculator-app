@@ -5,6 +5,20 @@ let result = true;
 let round = document.querySelectorAll(".round");
 let body = document.querySelector("body");
 let limite = document.querySelector(".limite");
+let transition = document.querySelector(".transition");
+let rectangle;
+for (let i = 0; i < 10; i++) {
+    rectangle = document.createElement("div");
+    rectangle.className = "rectangle";
+    rectangle.style.left = "0%"
+    transition.appendChild(rectangle);
+}
+let classRectangle = document.querySelectorAll(".rectangle");
+let space = 0;
+classRectangle.forEach((cla) => {
+    cla.style.left = (parseInt(cla.style.left) + space) + "%"; 
+    space += 10.8;
+});
 
 const savedTheme = localStorage.getItem('calculator-theme') || 1;
 round.forEach((r) => r.style.opacity = "0");
@@ -20,8 +34,10 @@ btn.forEach((button) => {
                 result = true;
             }
         } else if (button.value == "=") {
-            value = screen.textContent.match(/([-+]?\d+(?:\.\d+)?|[+\-*/])/g).join("");
-            animateText(screen, limite, eval(value), true);
+            if (!result) {
+                value = screen.textContent.match(/([-+]?\d+(?:\.\d+)?|[+\-*/])/g).join("");
+                animateText(screen, limite, eval(value), true);
+            }
             result = true;
         } else if (button.value == "reset") {
             animateText(screen, limite, "0");
