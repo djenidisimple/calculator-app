@@ -20,8 +20,10 @@ btn.forEach((button) => {
                 result = true;
             }
         } else if (button.value == "=") {
-            value = screen.textContent.match(/([-+]?\d+(?:\.\d+)?|[+\-*/])/g).join("");
-            animateText(screen, limite, eval(value), true);
+            if (!result) {
+                value = screen.textContent.match(/([-+]?\d+(?:\.\d+)?|[+\-*/])/g).join("");
+                animateText(screen, limite, eval(value), true);
+            }
             result = true;
         } else if (button.value == "reset") {
             animateText(screen, limite, "0");
