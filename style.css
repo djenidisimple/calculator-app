@@ -349,8 +349,7 @@ button:hover {
         max-width: 540px;
     }
     .screen {
-        height: 12vh;
-        max-height: 124px;
+        height: 124px;
     }
     .keyboard {
         column-gap: 1.5vw;
