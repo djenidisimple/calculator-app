@@ -344,11 +344,16 @@ button:hover {
         width: 100%;
     }
     .keyboard, .calculator {
-        width: 35vw;
+        width: 38vw;
         max-width: 540px;
     }
     .screen {
         height: 12vh;
+        max-height: 124px;
+    }
+    .keyboard {
+        column-gap: 1vw;
+        row-gap: 3vh;
     }
     .text-screen {
         font-weight: bolder;
